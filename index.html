@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PPO — MountainCar-v0</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <h1>PPO — MountainCar-v0</h1>
+  <p class="subtitle">
+    Exercise 1.12 · <em>Whole-Course Machine Learning</em>
+  </p>
+
+  <div class="layout">
+
+    <!-- Environment canvas -->
+    <canvas id="env-canvas" width="640" height="280"></canvas>
+
+    <!-- Reward history chart -->
+    <canvas id="chart-canvas" width="640" height="140"></canvas>
+
+    <!-- Stats row -->
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-label">Episode</div>
+        <div class="stat-value" id="stat-episode">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Steps (this ep)</div>
+        <div class="stat-value" id="stat-steps">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Episode Reward</div>
+        <div class="stat-value" id="stat-reward">—</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Avg Reward (50 ep)</div>
+        <div class="stat-value" id="stat-avg">—</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">PPO Updates</div>
+        <div class="stat-value" id="stat-updates">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Successes</div>
+        <div class="stat-value" id="stat-success">0</div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="btn-start">▶ Start</button>
+      <button id="btn-reset">↺ Reset</button>
+      <label>
+        Speed
+        <input type="range" id="speed-slider" min="1" max="200" value="20" />
+        <span id="speed-label">20 steps/frame</span>
+      </label>
+    </div>
+
+    <!-- Status message -->
+    <div id="status" class="status">Ready. Press Start to begin training.</div>
+
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
