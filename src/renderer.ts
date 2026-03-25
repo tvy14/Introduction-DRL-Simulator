@@ -90,9 +90,7 @@ export function renderEnv(
   // Body
   const bodyColor = success ? '#44ff88' : (training ? '#7ecfff' : '#aaaaaa');
   ctx.fillStyle = bodyColor;
-  ctx.beginPath();
-  ctx.roundRect(-cW / 2, -cH - 6, cW, cH, 3);
-  ctx.fill();
+  ctx.fillRect(-cW / 2, -cH - 6, cW, cH);
 
   // Wheels
   ctx.fillStyle = '#222';
@@ -110,7 +108,7 @@ export function renderEnv(
   // ── overlay text ─────────────────────────────────────────────────────────
   ctx.font      = '12px monospace';
   ctx.fillStyle = '#ffffff88';
-  ctx.fillText(`pos ${position.toFixed(3)}  vel ${(MountainCar.height(position) * 0).toFixed(0)}`, 8, 18);
+  ctx.fillText(`pos ${position.toFixed(3)}`, 8, 18);
 }
 
 // ─── Reward history chart ────────────────────────────────────────────────────
