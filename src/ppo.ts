@@ -135,8 +135,6 @@ export class PPOAgent {
     const states      = transitions.map(t => t.state);
     const actions     = transitions.map(t => t.action);
     const oldLogProbs = transitions.map(t => t.logProb);
-    const vars        = this.model.trainableWeights as tf.Variable[];
-
     let totalLoss = 0;
     const nBatches = Math.max(1, Math.floor(n / this.batchSize));
 
@@ -173,7 +171,7 @@ export class PPOAgent {
           const entropyLoss  = tf.mul(tf.scalar(-this.entropyCoef), entropy);
 
           return tf.add(tf.add(actorLoss, criticLoss), entropyLoss) as tf.Scalar;
-        }, /* returnCost */ true, vars);
+        }, /* returnCost */ true);
 
         if (loss) {
           totalLoss += loss.dataSync()[0];
